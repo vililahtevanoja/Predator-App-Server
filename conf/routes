@@ -1,0 +1,27 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                           controllers.ScoutServerController.index
+
+# get lists
+GET     /formations                 controllers.ScoutServerController.getFormations
+GET     /plays                      controllers.ScoutServerController.getPlays
+GET     /downs                      controllers.ScoutServerController.getDowns
+GET     /playtypes                  controllers.ScoutServerController.getPlayTypes
+
+# get single entries
+GET     /formations/:id             controllers.ScoutServerController.getFormation(id: Long)
+GET     /plays/:id                  controllers.ScoutServerController.getPlay(id: Long)
+GET     /downs/:id                  controllers.ScoutServerController.getDown(id: Long)
+GET     /playtypes/:id              controllers.ScoutServerController.getPlayType(id: Long)
+
+# add entries
+POST    /formations/                controllers.ScoutServerController.addFormation
+POST    /plays/add/                 controllers.ScoutServerController.addPlay
+POST    /downs/add/                 controllers.ScoutServerController.addDown
+POST    /playtypes/add/             controllers.ScoutServerController.addPlayType
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
