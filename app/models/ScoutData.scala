@@ -19,14 +19,6 @@ case class PlayInformation(val name: String,
 
 object PlayInformation {
   implicit val writes = Json.writes[PlayInformation]
-//  implicit val playInformationWrites = new Writes[PlayInformation with Persisted] {
-//    def writes(play: PlayInformation with Persisted): JsValue = {
-//      Json.obj(
-//        "id" -> play.id,
-//        "playType" -> play.playType
-//      )
-//    }
-//  }
   implicit val reads = Json.reads[PlayInformation]
 }
 
