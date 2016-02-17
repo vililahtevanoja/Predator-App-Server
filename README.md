@@ -1,15 +1,14 @@
 Server software for Predators App
 =================================
 
-#Installation (OS X)
-Install Scala, SBT and TypeSafe Activator
+# Installation (OS X)
+Install Scala and SBT
 ```
 brew install scala
 brew install sbt
-brew install typesafe-activator
 ```
 
-Get depencencies
+Resolve and retrieve external dependencies
 ```
 sbt update
 ```
@@ -19,7 +18,11 @@ Create IntelliJ project:
 
 # Run
 CLI:
-In project directory run `activator run`. This also resolves and downloads dependencies.
+Install TypeSafe Activator
+```
+brew install typesafe-activator
+```
+In project directory run `activator run`. This also resolves and retrieves dependencies.
 
 IntelliJ:
 `Run` -> `Edit configurations` -> Add `Play 2 App` configuration
