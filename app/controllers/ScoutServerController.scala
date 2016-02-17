@@ -37,6 +37,7 @@ class ScoutServerController extends Controller {
   }
 
   def addPlay = Action(parse.json) { request =>
+    println(request.body)
     val formation = ScoutDataDb.save(request.body.as[PlayInformation])
     Ok(Json.toJson(formation))
   }
