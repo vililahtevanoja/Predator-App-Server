@@ -49,23 +49,6 @@ bin/
 /lib/
 /logs/
 /modules
-/project/target
-/target
-tmp/
-test-result
-server.pid
-*.eml
-/dist/
-.cache
-# Ignore Play! working directory #
-bin/
-/db
-.eclipse
-/lib/
-/logs/
-/modules
-/project/target
-/target
 tmp/
 test-result
 server.pid
@@ -78,7 +61,6 @@ server.pid
 *.log
 
 # sbt specific
-.cache
 .history
 .lib/
 dist/*
