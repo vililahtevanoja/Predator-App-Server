@@ -9,6 +9,10 @@ import play.api._
 object Global extends GlobalSettings {
 
   override def onStart(app: Application) = {
+    loadTestData
+  }
+
+  def loadTestData = {
     ScoutDataDb.save(Formation("Split"))
     ScoutDataDb.save(Formation("Slot"))
     ScoutDataDb.save(Formation("Ace"))
