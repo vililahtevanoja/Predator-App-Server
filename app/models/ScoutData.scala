@@ -5,42 +5,39 @@ package models
   * @author vili
   */
 import sorm._
-import play.api.libs.json.{JsValue, Writes, Json}
+import play.api.libs.json.{Format, JsPath, JsValue, Writes, Json}
+import play.api.libs.functional.syntax._
 
 case class Formation(val name: String)
 
 object Formation {
-  implicit val writes = Json.writes[Formation]
-  implicit val reads = Json.reads[Formation]
-}
-
-case class PlayInformation(val name: String,
-                           val playType: PlayType)
-
-object PlayInformation {
-  implicit val writes = Json.writes[PlayInformation]
-  implicit val reads = Json.reads[PlayInformation]
-}
-
-case class Player(number: Int)
-
-object Player {
-  implicit val writes = Json.writes[Player]
-  implicit val reads = Json.reads[Player]
+  implicit val format = Json.format[Formation]
 }
 
 case class PlayType(val name: String)
 
 object PlayType {
-  implicit val writes = Json.writes[PlayType]
-  implicit val reads = Json.reads[PlayType]
+  implicit val format = Json.format[PlayType]
+}
+
+case class Player(number: Int)
+
+object Player {
+  implicit val format = Json.format[Player]
 }
 
 case class Position(val name: String)
 
 object Position {
-  implicit val writes = Json.writes[Position]
-  implicit val reads = Json.reads[Position]
+  implicit val format = Json.format[Position]
+}
+
+
+case class PlayInformation(val name: String,
+                           val playType: PlayType)
+
+object PlayInformation {
+  implicit val format = Json.format[PlayInformation]
 }
 
 case class DownInformation(val name: String,
@@ -52,8 +49,7 @@ case class DownInformation(val name: String,
                            val target: Player)
 
 object DownInformation {
-  implicit val writes = Json.writes[DownInformation]
-  implicit val reads = Json.reads[DownInformation]
+  implicit val format = Json.format[DownInformation]
 }
 
 object ScoutDataDb extends Instance (
