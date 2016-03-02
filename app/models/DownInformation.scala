@@ -12,17 +12,6 @@ case class DownInformation(val id: Option[Int],
                            val playId: Int,
                            val targetId: Int)
 
-/*
-case class DownInformation(val id: Option[Int],
-                           val name: String,
-                           val down: Int,
-                           val yards: Int,
-                           val gained: Int,
-                           val formation: Formation,
-                           val play: PlayInformation,
-                           val target: Player)
- */
-
 object DownInformation {
   implicit val downInformationReads: Reads[DownInformation] = (
       (JsPath \ "id").readNullable[Int] and

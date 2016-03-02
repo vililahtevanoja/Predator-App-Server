@@ -7,12 +7,6 @@ case class PlayInformation(val id: Option[Int],
                            val name: String,
                            val playTypeId: Int)
 
-/*
-case class PlayInformation(val id: Option[Int],
-                           val name: String,
-                           val playType: PlayType)
- */
-
 object PlayInformation {
   implicit val playInformationReads: Reads[PlayInformation] = (
       (JsPath \ "id").readNullable[Int] and
