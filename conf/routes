@@ -10,12 +10,16 @@ GET     /formations/                controllers.ScoutServerController.getFormati
 GET     /plays/                     controllers.ScoutServerController.getPlays
 GET     /downs/                     controllers.ScoutServerController.getDowns
 GET     /playtypes/                 controllers.ScoutServerController.getPlayTypes
+GET     /positions/                 controllers.ScoutServerController.getPositions
+GET     /players/                   controllers.ScoutServerController.getPlayers
 
 # get single entries
-GET     /formations/:id             controllers.ScoutServerController.getFormation(id: Long)
-GET     /plays/:id                  controllers.ScoutServerController.getPlay(id: Long)
-GET     /downs/:id                  controllers.ScoutServerController.getDown(id: Long)
-GET     /playtypes/:id              controllers.ScoutServerController.getPlayType(id: Long)
+GET     /formations/:id             controllers.ScoutServerController.getFormation(id: Int)
+GET     /plays/:id                  controllers.ScoutServerController.getPlay(id: Int)
+GET     /downs/:id                  controllers.ScoutServerController.getDown(id: Int)
+GET     /playtypes/:id              controllers.ScoutServerController.getPlayType(id: Int)
+GET     /positions/:id              controllers.ScoutServerController.getPosition(id: Int)
+GET     /players/:id                controllers.ScoutServerController.getPlayer(id: Int)
 
 # add entries
 POST    /formations/                controllers.ScoutServerController.addFormation
