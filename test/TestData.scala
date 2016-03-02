@@ -1,24 +1,39 @@
-import models.{PlayInformation, PlayType, Formation, ScoutDataDb}
+import javax.inject.Inject
 
-/**
-  * Created on 2016-02-17.
-  *
-  * @author vili
-  */
-object TestData {
+import dao._
+import models.{Position, Formation, PlayType}
+import play.api.db.slick.DatabaseConfigProvider
+import slick.driver.JdbcProfile
+
+class TestData @Inject()(dbConfigProvider: DatabaseConfigProvider) {
+  val dbConfig = dbConfigProvider.get[JdbcProfile]
+  import dbConfig.driver.api._
   def load = {
-    ScoutDataDb.save(Formation("Split"))
-    ScoutDataDb.save(Formation("Slot"))
-    ScoutDataDb.save(Formation("Ace"))
-    ScoutDataDb.save(Formation("I"))
-    ScoutDataDb.save(Formation("Triple"))
-
-    val run = ScoutDataDb.save(PlayType("Run"))
-    val pass = ScoutDataDb.save(PlayType("Pass"))
-
-    ScoutDataDb.save(PlayInformation("Toss", run))
-    ScoutDataDb.save(PlayInformation("Lead", run))
-    ScoutDataDb.save(PlayInformation("Dive", run))
-    ScoutDataDb.save(PlayInformation("Hail Mary", pass))
+    dbConfig.db.run(
+      DBIO.seq(
+        Formations.objects.schema.create,
+        Formations.objects += Formation(None, "Split"),
+        Formations.objects += Formation(None, "Slot"),
+        Formations.objects += Formation(None, "Ace"),
+        Formations.objects += Formation(None, "I"),
+        Formations.objects += Formation(None, "Triple"),
+        PlayTypes.objects.schema.create,
+        PlayTypes.objects += PlayType(None, "Run"),
+        PlayTypes.objects += PlayType(None, "Pass"),
+        Positions.objects.schema.create,
+        Positions.objects += Position(None, "OL"),
+        Positions.objects += Position(None, "QB"),
+        Positions.objects += Position(None, "RB"),
+        Positions.objects += Position(None, "WR"),
+        Positions.objects += Position(None, "TE"),
+        Positions.objects += Position(None, "DL"),
+        Positions.objects += Position(None, "LB"),
+        Positions.objects += Position(None, "CB"),
+        Positions.objects += Position(None, "S"),
+        PlayInformations.objects.schema.create,
+        DownInformations.objects.schema.create,
+        Players.objects.schema.create
+      )
+    )
   }
 }
