@@ -1,5 +1,4 @@
 language: scala
-language: java
 scala:
     - 2.11.8
 before_install:  
