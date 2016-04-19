@@ -4,4 +4,4 @@ scala:
 before_install:  
      - sudo apt-get update
      - sudo apt-get install openjdk-7-jdk
-     - sudo update-java-alternatives --set java-7-openjdk
+     - sudo update-java-alternatives --set java-7-openjdk-amd64
