@@ -2,4 +2,5 @@ language: scala
 scala:
     - 2.11.8
 before_install:  
-     - sudo update-java-alternatives --set java-7-openjdk-amd64
+    - update-java-alternatives -l
+    - sudo update-java-alternatives --set java-7-openjdk-amd64
