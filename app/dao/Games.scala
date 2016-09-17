@@ -1,10 +1,9 @@
 package dao
 
-import java.sql.Date
-
 import models.Game
 import slick.driver.H2Driver.api._
 import slick.lifted.Tag
+import java.sql.Date
 
 class Games(tag: Tag) extends Table[Game](tag, "games") {
   def id = column[Int]("id", O.PrimaryKey, O.AutoInc)
