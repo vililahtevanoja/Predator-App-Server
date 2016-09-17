@@ -19,7 +19,7 @@ class ScoutServerController @Inject()(dbConfigProvider: DatabaseConfigProvider) 
   import dbConfig.driver.api._
 
   def index = Action {
-    Ok("Hello, world. You're at the polls index.")
+    Ok("Hello, world. You're at the api index.")
   }
 
   def getFormations = Action.async {
