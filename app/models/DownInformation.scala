@@ -3,14 +3,14 @@ package models
 import play.api.libs.json._
 import play.api.libs.functional.syntax._
 
-case class DownInformation(val id: Option[Int],
-                           val name: String,
-                           val down: Int,
-                           val yards: Int,
-                           val gained: Int,
-                           val formationId: Int,
-                           val playId: Int,
-                           val targetId: Int)
+case class DownInformation(id: Option[Int],
+                           name: String,
+                           down: Int,
+                           yards: Int,
+                           gained: Int,
+                           formationId: Int,
+                           playId: Int,
+                           targetId: Int)
 
 object DownInformation {
   implicit val downInformationReads: Reads[DownInformation] = (

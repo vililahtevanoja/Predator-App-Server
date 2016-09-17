@@ -3,7 +3,7 @@ package models
 import play.api.libs.json._
 import play.api.libs.functional.syntax._
 
-case class Formation(val id: Option[Int], val name: String)
+case class Formation(id: Option[Int], name: String)
 
 object Formation {
   implicit val formationReads: Reads[Formation] = (
