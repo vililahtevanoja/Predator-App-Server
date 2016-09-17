@@ -13,14 +13,14 @@ libraryDependencies ++= Seq(
   cache,
   ws,
   specs2 % Test,
-  "com.typesafe.play" %% "play-slick" % "1.1.1",
-  "com.h2database" % "h2" % "1.4.191",
-  "com.typesafe.akka" % "akka-stream_2.11" % "2.4.2",
-  "com.typesafe.akka" % "akka-slf4j_2.11" % "2.4.2",
-  "ws.securesocial" %% "securesocial" % "3.0-M3",
+  "com.typesafe.play" %% "play-slick" % "2.0.0",
+  "com.h2database" % "h2" % "1.4.192",
+  "com.typesafe.akka" % "akka-stream_2.11" % "2.4.10",
+  "com.typesafe.akka" % "akka-slf4j_2.11" % "2.4.10",
+  "com.mohiva" % "play-silhouette_2.11" % "4.0.0",
   "org.julienrf" % "play-json-derived-codecs_2.11" % "3.0",
-  "org.scalactic" %% "scalactic" % "2.2.6",
-  "org.scalatest" %% "scalatest" % "2.2.6" % "test"
+  "org.scalactic" %% "scalactic" % "3.0.0",
+  "org.scalatest" %% "scalatest" % "3.0.0" % "test"
 )
 
 resolvers += "scalaz-bintray" at "http://dl.bintray.com/scalaz/releases"

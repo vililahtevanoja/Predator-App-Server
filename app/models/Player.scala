@@ -3,7 +3,7 @@ package models
 import play.api.libs.json._
 import play.api.libs.functional.syntax._
 
-case class Player(val id: Option[Int], val number: Int)
+case class Player(id: Option[Int], number: Int)
 
 object Player {
   implicit val playerReads: Reads[Player] = (
