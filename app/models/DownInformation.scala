@@ -10,7 +10,8 @@ case class DownInformation(id: Option[Int],
                            gained: Int,
                            formationId: Int,
                            playId: Int,
-                           targetId: Int)
+                           targetId: Int,
+                           gameId: Int)
 
 object DownInformation {
   implicit val downInformationReads: Reads[DownInformation] = (
@@ -21,7 +22,8 @@ object DownInformation {
       (JsPath \ "gained").read[Int] and
       (JsPath \ "formationId").read[Int] and
       (JsPath \ "playId").read[Int] and
-      (JsPath \ "targetId").read[Int]
+      (JsPath \ "targetId").read[Int] and
+      (JsPath \ "gameId").read[Int]
     )(DownInformation.apply _)
 
   implicit val downInformationWrites: Writes[DownInformation] = (
@@ -32,6 +34,7 @@ object DownInformation {
       (JsPath \ "gained").write[Int] and
       (JsPath \ "formationId").write[Int] and
       (JsPath \ "playId").write[Int] and
-      (JsPath \ "targetId").write[Int]
+      (JsPath \ "targetId").write[Int] and
+      (JsPath \ "gameId").write[Int]
     )(unlift(DownInformation.unapply))
 }
