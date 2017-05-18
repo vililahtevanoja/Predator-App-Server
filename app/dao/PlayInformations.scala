@@ -1,18 +1,17 @@
 package dao
 
-import models.{PlayType, PlayInformation}
-import slick.lifted.Tag
+import models.{PlayInformation, PlayType}
+import slick.lifted.{ForeignKeyQuery, Tag}
 import slick.driver.H2Driver.api._
 
 class PlayInformations(tag: Tag) extends Table[PlayInformation](tag, "play_informations") {
-  val id = column[Int]("id", O.PrimaryKey, O.AutoInc)
-  val name = column[String]("name")
-  val playTypeId = column[Int]("playtype_id")
-//  val playType = column[PlayType]("playtype")
+  val id: Rep[Int] = column[Int]("id", O.PrimaryKey, O.AutoInc)
+  val name: Rep[String] = column[String]("name")
+  val playTypeId: Rep[Int] = column[Int]("playtype_id")
   def * = (id.?, name, playTypeId) <> ((PlayInformation.apply _).tupled, PlayInformation.unapply)
-  val playType = foreignKey("playType", playTypeId, PlayTypes.objects)(_.id, onUpdate=ForeignKeyAction.Restrict, onDelete=ForeignKeyAction.Cascade)
+  val playType: ForeignKeyQuery[PlayTypes, PlayType] = foreignKey("playType", playTypeId, PlayTypes.objects)(_.id, onUpdate=ForeignKeyAction.Restrict, onDelete=ForeignKeyAction.Cascade)
 }
 
 object PlayInformations {
-  val objects = TableQuery[PlayInformations]
+  val objects: TableQuery[PlayInformations] = TableQuery[PlayInformations]
 }
