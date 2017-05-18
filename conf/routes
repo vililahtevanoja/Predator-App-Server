@@ -6,10 +6,7 @@
 GET     /                           controllers.ScoutServerController.index
 
 # authentication
-POST    /auth/register              controllers.AuthController.register
-POST    /auth/signin                controllers.AuthController.signIn
-POST    /auth/authenticate          controllers.AuthController.authenticate
-POST    /auth/signout               controllers.AuthController.signOut
+# TODO
 
 # get lists
 GET     /formations                controllers.ScoutServerController.getFormations
