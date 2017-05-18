@@ -5,13 +5,19 @@
 # Home page
 GET     /                           controllers.ScoutServerController.index
 
+# authentication
+POST    /auth/register              controllers.AuthController.register
+POST    /auth/signin                controllers.AuthController.signIn
+POST    /auth/authenticate          controllers.AuthController.authenticate
+POST    /auth/signout               controllers.AuthController.signOut
+
 # get lists
-GET     /formations/                controllers.ScoutServerController.getFormations
-GET     /plays/                     controllers.ScoutServerController.getPlays
-GET     /downs/                     controllers.ScoutServerController.getDowns
-GET     /playtypes/                 controllers.ScoutServerController.getPlayTypes
-GET     /positions/                 controllers.ScoutServerController.getPositions
-GET     /players/                   controllers.ScoutServerController.getPlayers
+GET     /formations                controllers.ScoutServerController.getFormations
+GET     /plays                     controllers.ScoutServerController.getPlays
+GET     /downs                     controllers.ScoutServerController.getDowns
+GET     /playtypes                 controllers.ScoutServerController.getPlayTypes
+GET     /positions                 controllers.ScoutServerController.getPositions
+GET     /players                   controllers.ScoutServerController.getPlayers
 
 # get single entries
 GET     /formations/:id             controllers.ScoutServerController.getFormation(id: Int)
