@@ -12,6 +12,7 @@ libraryDependencies ++= Seq(
   jdbc,
   cache,
   ws,
+  filters,
   specs2 % Test,
   "com.typesafe.play" %% "play-slick" % "2.0.0",
   "com.h2database" % "h2" % "1.4.192",
@@ -20,7 +21,8 @@ libraryDependencies ++= Seq(
   "com.mohiva" % "play-silhouette_2.11" % "4.0.0",
   "org.julienrf" % "play-json-derived-codecs_2.11" % "3.0",
   "org.scalactic" %% "scalactic" % "3.0.0",
-  "org.scalatest" %% "scalatest" % "3.0.0" % "test"
+  "org.scalatestplus.play" %% "scalatestplus-play" % "1.5.1" % "test",
+  "org.scalamock" %% "scalamock-scalatest-support" % "3.2.2" % "test"
 )
 
 resolvers += "scalaz-bintray" at "http://dl.bintray.com/scalaz/releases"
