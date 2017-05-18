@@ -1,7 +1,10 @@
 import javax.inject.Inject
 
 import dao._
-import models.{Position, Formation, PlayType, Team, Player}
+import models._
+import java.sql.Date
+
+import org.joda.time.DateTime
 import play.api.db.slick.DatabaseConfigProvider
 import slick.driver.JdbcProfile
 
@@ -18,6 +21,7 @@ class TestData @Inject()(dbConfigProvider: DatabaseConfigProvider) {
         PlayInformations.objects.schema.create,
         DownInformations.objects.schema.create,
         Players.objects.schema.create,
+        Games.objects.schema.create,
         Formations.objects += Formation(None, "Split"),
         Formations.objects += Formation(None, "Slot"),
         Formations.objects += Formation(None, "Ace"),
@@ -37,7 +41,8 @@ class TestData @Inject()(dbConfigProvider: DatabaseConfigProvider) {
         Teams.objects += Team(Some(1), "Aalto Predators"),
         Teams.objects += Team(Some(2), "Lappeenranta Wildmen"),
         Players.objects += Player(Some(1), 1, 66),
-        Players.objects += Player(Some(2), 1, 69)
+        Players.objects += Player(Some(2), 1, 69),
+        Games.objects += Game(Some(1), 1, 2, new Date(DateTime.now().getMillis))
       )
     )
   }
