@@ -159,6 +159,7 @@ class ScoutServerController @Inject()(dbConfigProvider: DatabaseConfigProvider) 
       dbConfig.db.run(Games.objects.filter(_.id === id).result.headOption)
     gameFuture.map {
       case Some(game) => Ok(Json.toJson(game)).withHeaders("Access-Control-Allow-Origin" -> "*")
+      case None => NotFound
     }
   }
 }
