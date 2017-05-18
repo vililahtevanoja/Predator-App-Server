@@ -6,12 +6,15 @@ import java.sql.Date
 
 import org.joda.time.DateTime
 import play.api.db.slick.DatabaseConfigProvider
+import slick.backend.DatabaseConfig
 import slick.driver.JdbcProfile
 
+import scala.concurrent.Future
+
 class TestData @Inject()(dbConfigProvider: DatabaseConfigProvider) {
-  val dbConfig = dbConfigProvider.get[JdbcProfile]
+  val dbConfig: DatabaseConfig[JdbcProfile] = dbConfigProvider.get[JdbcProfile]
   import dbConfig.driver.api._
-  def load = {
+  def load: Future[Unit] = {
     dbConfig.db.run(
       DBIO.seq(
         Formations.objects.schema.create,
