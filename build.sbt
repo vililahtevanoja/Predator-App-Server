@@ -16,13 +16,14 @@ libraryDependencies ++= Seq(
   specs2 % Test,
   "com.typesafe.play" %% "play-slick" % "2.0.0",
   "com.h2database" % "h2" % "1.4.192",
-  "com.typesafe.akka" % "akka-stream_2.11" % "2.4.10",
-  "com.typesafe.akka" % "akka-slf4j_2.11" % "2.4.10",
-  "com.mohiva" % "play-silhouette_2.11" % "4.0.0",
-  "org.julienrf" % "play-json-derived-codecs_2.11" % "3.0",
+  "com.typesafe.akka" %% "akka-stream" % "2.4.10",
+  "com.typesafe.akka" %% "akka-slf4j" % "2.4.10",
+  "com.mohiva" %% "play-silhouette" % "4.0.0",
+  "org.julienrf" %% "play-json-derived-codecs" % "3.0",
   "org.scalactic" %% "scalactic" % "3.0.0",
-  "org.scalatestplus.play" %% "scalatestplus-play" % "1.5.1" % "test",
-  "org.scalamock" %% "scalamock-scalatest-support" % "3.2.2" % "test"
+  "org.scalatestplus.play" %% "scalatestplus-play" % "2.0.0" % "test",
+  "org.scalamock" %% "scalamock-scalatest-support" % "3.6.0" % "test",
+  "org.springframework.hateoas" % "spring-hateoas" % "0.23.0.RELEASE"
 )
 
 resolvers += "scalaz-bintray" at "http://dl.bintray.com/scalaz/releases"
