@@ -10,7 +10,7 @@ import play.api.test.Helpers._
 @RunWith(classOf[JUnitRunner])
 class DownInformationSpec extends PlaySpec {
   "DownInformation" must {
-    "be able to converted to from valid JSON containing all of its data" in new WithApplication {
+    "be able to converted to from valid JSON containing all of its data" in {
       val expectedDownInformation = DownInformation(Some(1), "Lead", 1, 3, 3, 2, 3, 2, 1)
       val downInformationJsonString =
         """{
@@ -29,7 +29,7 @@ class DownInformationSpec extends PlaySpec {
     }
   }
   it should {
-    "be able to be converted to from valid JSON containing all of its data except for the id" in new WithApplication {
+    "be able to be converted to from valid JSON containing all of its data except for the id" in {
       val expectedDownInformation = DownInformation(None, "Lead", 1, 3, 3, 2, 3, 2, 1)
       val downInformationJsonString =
         """{
@@ -43,6 +43,15 @@ class DownInformationSpec extends PlaySpec {
           |  "gameId": 1
           |  }""".stripMargin
       val actualDownInformation = Json.parse(downInformationJsonString).as[DownInformation]
+      actualDownInformation mustBe expectedDownInformation
+    }
+  }
+
+  it should {
+    "be able to serialize and deserialize into an equal object" in {
+      val expectedDownInformation = DownInformation(Some(1), "Lead", 1, 3, 3, 2, 3, 2, 1)
+      val actualDownInformationJson = Json.toJson(expectedDownInformation).toString
+      val actualDownInformation = Json.parse(actualDownInformationJson).as[DownInformation]
       actualDownInformation mustBe expectedDownInformation
     }
   }
